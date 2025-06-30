@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="mainLayout">
+
+    <!-- Top Menu -->
+    <top>
+        <ToolBar>
+            <Button text="Ajustes" />
+            <Label text="Campaña" style="-fx-font-weight: bold; -fx-padding: 0 20 0 20;" />
+            <ComboBox promptText="Selecciona campaña" />
+            <Button text="Nueva" />
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
+            <Button text="Exportar" />
+        </ToolBar>
+    </top>
+
+    <!-- Left Menu -->
+    <left>
+        <VBox spacing="10" padding="10">
+            <Button text="Overview" maxWidth="Infinity" />
+            <Button text="Sessions" maxWidth="Infinity" />
+            <Button text="Characters" maxWidth="Infinity" />
+            <Button text="Bestiary" maxWidth="Infinity" />
+            <Button text="Loot Tables" maxWidth="Infinity" />
+            <Button text="Map" maxWidth="Infinity" />
+            <Button text="Home" maxWidth="Infinity" />
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox spacing="10" padding="20">
+            <Label text="Nombre-Campaña" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <HBox spacing="20">
+                <VBox>
+                    <Label text="Sessions" />
+                    <Label text="0" />
+                </VBox>
+                <VBox>
+                    <Label text="Characters" />
+                    <Label text="0" />
+                </VBox>
+                <VBox>
+                    <Label text="Dice rolls" />
+                    <Label text="0" />
+                </VBox>
+            </HBox>
+            <TextArea promptText="Descripcion de la campaña" prefRowCount="4" />
+            <TextField promptText="Tipo" />
+            <Button text="ROLL DICE" />
+        </VBox>
+    </center>
+
+</BorderPane>

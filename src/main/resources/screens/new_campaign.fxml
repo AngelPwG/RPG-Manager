@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.NewCampaignController" spacing="10">
+    <padding> <Insets topRightBottomLeft="20"/> </padding>
+    <Label text="New Campaign" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Campaign Name" />
+    <ComboBox fx:id="systemField" promptText="Game System" />
+    <TextArea fx:id="descField" promptText="Description" prefRowCount="4" wrapText="true"/>
+    <HBox spacing="10">
+        <Button text="Crear" onAction="#createCampaign" />
+        <Button text="Cancelar" onAction="#cancel" />
+    </HBox>
+</VBox>

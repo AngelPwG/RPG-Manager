@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.CampaignsController">
+
+    <top>
+        <ToolBar>
+            <Label text="Campaigns" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="New Campaign" onAction="#onNewCampaign" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="20"/> </padding>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true">
+                <FlowPane fx:id="cardContainer" prefWidth="600" hgap="15" vgap="15">
+                    <padding>
+                        <Insets topRightBottomLeft="15"/> </padding>
+                </FlowPane>
+            </ScrollPane>
+            <Button text="Open selected campaign" onAction="#onOpenCampaign" />
+        </VBox>
+    </center>
+
+</BorderPane>
