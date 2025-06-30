@@ -4,7 +4,7 @@
 <?import javafx.geometry.Insets?>
 
 <HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.rpgmanager.controllers.CampaignsController">
+      fx:controller="com.rpgmanager.controllers.MonstersController">
 
     <VBox>
         <padding>
@@ -18,9 +18,8 @@
     <BorderPane HBox.hgrow="ALWAYS">
         <top>
             <ToolBar>
-                <Label text="Campaigns" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+                <Label text="MONSTERS" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button text="New Campaign" onAction="#onNewCampaign" />
             </ToolBar>
         </top>
 
@@ -29,13 +28,7 @@
                 <padding>
                     <Insets topRightBottomLeft="20"/>
                 </padding>
-                <ScrollPane fitToWidth="true">
-                    <FlowPane fx:id="cardContainer" prefWidth="600" hgap="15" vgap="15">
-                        <padding>
-                            <Insets topRightBottomLeft="15"/>
-                        </padding>
-                    </FlowPane>
-                </ScrollPane>
+
             </VBox>
         </center>
     </BorderPane>

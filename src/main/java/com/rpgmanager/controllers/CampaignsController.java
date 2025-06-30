@@ -69,11 +69,6 @@ public class CampaignsController {
         loadCampaigns();
     }
 
-    @FXML
-    private void onOpenCampaign(ActionEvent event) {
-        showError("Function not implemented yet");
-    }
-
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");

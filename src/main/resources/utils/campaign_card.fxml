@@ -14,8 +14,11 @@
             <Insets topRightBottomLeft="20"/> </padding>
         <Label fx:id="nameLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
         <Label fx:id="systemLabel"/>
-        <Text fx:id="descText" wrappingWidth="270" />
+        <ScrollPane prefWidth="290" prefHeight="150">
+            <Text fx:id="descText" wrappingWidth="270" style="-fx-background-color: #bfbfbf;"/>
+        </ScrollPane>
         <Label fx:id="dateLabel" style="-fx-font-size: 10px;" />
         <Label fx:id="stateLabel" />
+        <Button text="Open" onAction="#onOpenCampaign" />
     </VBox>
 </AnchorPane>

@@ -3,7 +3,7 @@ package com.rpgmanager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,11 +16,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/main.fxml"));
-        BorderPane root = loader.load();
-
-        Scene scene = new Scene(root, 900, 600);
-        primaryStage.setTitle("RPG Campaign Manager");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/screens/main.fxml")); // Make sure "your-view-name.fxml" is correct
+        HBox root = fxmlLoader.load();
+        Scene scene = new Scene(root, 800, 600);
+        primaryStage.setTitle("RPG Manager");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
