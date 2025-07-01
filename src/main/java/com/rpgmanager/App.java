@@ -18,8 +18,8 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/screens/main.fxml")); // Make sure "your-view-name.fxml" is correct
         HBox root = fxmlLoader.load();
-        Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("RPG Manager");
+        Scene scene = new Scene(root, 1000, 600);
+        primaryStage.setTitle("Home");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -4,32 +4,51 @@
 <?import javafx.geometry.Insets?>
 
 <HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.rpgmanager.controllers.MonstersController">
+      fx:controller="com.rpgmanager.controllers.MonsterController">
 
-    <VBox>
+    <VBox style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;">
         <padding>
-            <Insets topRightBottomLeft="20"/>
+            <Insets top="20" right="20" bottom="20" left="20"/>
         </padding>
-        <Button text="Home" maxWidth="Infinity" />
+        <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
+        <Button text="Bestiary" maxWidth="Infinity"/>
         <Button text="Characters" maxWidth="Infinity" />
-        <Button text="Bestiary" maxWidth="Infinity" />
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">
         <top>
             <ToolBar>
-                <Label text="MONSTERS" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
-                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Monsters Database" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
             </ToolBar>
         </top>
 
         <center>
-            <VBox spacing="10">
-                <padding>
-                    <Insets topRightBottomLeft="20"/>
-                </padding>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
 
-            </VBox>
+            <HBox spacing="10">
+                <TextField fx:id="searchBar" promptText="Search..." HBox.hgrow="ALWAYS" minWidth="200"/>
+                <Button text="Search" onAction="#onSearch"/>
+            </HBox>
+
+            <TableView fx:id="monstersTable" prefHeight="500" prefWidth="700">
+                <columns>
+                    <TableColumn fx:id="colName" text="Name" prefWidth="100"/>
+                    <TableColumn fx:id="colHP" text="HP" prefWidth="50"/>
+                    <TableColumn fx:id="colAC" text="AC" prefWidth="50"/>
+                    <TableColumn fx:id="colStrength" text="Str" prefWidth="50"/>
+                    <TableColumn fx:id="colDexterity" text="Dex" prefWidth="50"/>
+                    <TableColumn fx:id="colConstitution" text="Con" prefWidth="50"/>
+                    <TableColumn fx:id="colIntelligence" text="Int" prefWidth="50"/>
+                    <TableColumn fx:id="colWisdom" text="Wis" prefWidth="50"/>
+                    <TableColumn fx:id="colCharisma" text="Cha" prefWidth="50"/>
+                    <TableColumn fx:id="colDesc" text="Description" prefWidth="310"/>
+                </columns>
+            </TableView>
+
+        </VBox>
         </center>
     </BorderPane>
 

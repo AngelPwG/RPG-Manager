@@ -6,17 +6,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import com.rpgmanager.models.Campaign;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.Node;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 
-public class CampaignsController {
+public class CampaignsController extends GoToController{
 
     private final ObservableList<Campaign> campaignList = FXCollections.observableArrayList();
     @FXML private FlowPane cardContainer;

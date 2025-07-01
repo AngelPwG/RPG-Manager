@@ -2,67 +2,136 @@ package com.rpgmanager.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import com.rpgmanager.models.Monsters;
+import com.rpgmanager.utils.DatabaseManager;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class MonsterController {
-    TableView<User> table = new TableView<>();
-
+public class MonsterController extends GoToController{
 
     @FXML
-    TableColumn<User, String> nameCol = new TableColumn<>("Name");
+    private TextField searchBar;
 
     @FXML
-    TableColumn
-    @Override
-    public void start(Stage stage) {
-        TableColumn<User, String> nameCol = new TableColumn<>("Nombre");
-        nameCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().name));
+    private TableView<Monsters> monstersTable;
 
-        TableColumn<User, String> emailCol = new TableColumn<>("Email");
-        emailCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().email));
+    @FXML
+    private TableColumn<Monsters, String> colName;
 
-        table.getColumns().addAll(nameCol, emailCol);
-        table.setItems(getUsers());
+    @FXML
+    private TableColumn<Monsters, Double> colHP;
 
-        VBox root = new VBox(table);
-        Scene scene = new Scene(root, 400, 300);
-        stage.setTitle("Usuarios desde SQLite");
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private TableColumn<Monsters, Double> colAC;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colStrength;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colDexterity;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colConstitution;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colIntelligence;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colWisdom;
+
+    @FXML
+    private TableColumn<Monsters, Integer> colCharisma;
+
+    @FXML
+    private TableColumn<Monsters, String> colDesc;
+
+    private ObservableList<Monsters> monstersList = FXCollections.observableArrayList();
+
+    @FXML
+    public void initialize() {
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colHP.setCellValueFactory(new PropertyValueFactory<>("hp"));
+        colAC.setCellValueFactory(new PropertyValueFactory<>("ac"));
+
+        colStrength.setCellValueFactory(new PropertyValueFactory<>("strength"));
+        colDexterity.setCellValueFactory(new PropertyValueFactory<>("dexterity"));
+        colConstitution.setCellValueFactory(new PropertyValueFactory<>("constitution"));
+        colIntelligence.setCellValueFactory(new PropertyValueFactory<>("intelligence"));
+        colWisdom.setCellValueFactory(new PropertyValueFactory<>("wisdom"));
+        colCharisma.setCellValueFactory(new PropertyValueFactory<>("charisma"));
+
+        colDesc.setCellFactory(tc -> {
+            TableCell<Monsters, String> cell = new TableCell<>();
+            Text text = new Text();
+            cell.setGraphic(text);
+            cell.setPrefHeight(Control.USE_COMPUTED_SIZE); // Allows the cell to grow in height
+
+            text.wrappingWidthProperty().bind(colDesc.widthProperty()); // Text wraps based on column width
+
+            // Update the cell's text and recalculate preferred height
+            cell.itemProperty().addListener((obs, oldVal, newVal) -> {
+                text.setText(newVal);
+                // This listener ensures the cell's height is re-evaluated when content changes
+                cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
+            });
+            return cell;
+        });
+
+        loadMonsters("");
     }
 
-    // Cargar usuarios desde la base de datos
-    public ObservableList<User> getUsers() {
-        ObservableList<User> list = FXCollections.observableArrayList();
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:users.db");
+    @FXML
+    private void onSearch() {
+        String texto = searchBar.getText().trim().toLowerCase();
+        loadMonsters(texto);
+    }
+
+    private void loadMonsters(String filtro) {
+        monstersList.clear();
+
+        String sql = "SELECT m.id, m.name, m.description, m.hp, m.ac, s.strength, s.dexterity, s.constitution, s.intelligence, s.wisdom, s.charisma " +
+                "FROM monsters m JOIN Stats s ON m.stats_id = s.id";
+
+        if (!filtro.isEmpty()) {
+            sql += " WHERE lower(m.name) LIKE '%" + filtro + "%'";
+        }
+
+        try (Connection conn = DatabaseManager.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT name, email FROM users")) {
+             ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                list.add(new User(rs.getString("name"), rs.getString("email")));
+                Monsters m = new Monsters(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("hp"),
+                        rs.getInt("ac"),
+                        rs.getString("description"),
+                        rs.getInt("strength"),
+                        rs.getInt("dexterity"),
+                        rs.getInt("constitution"),
+                        rs.getInt("intelligence"),
+                        rs.getInt("wisdom"),
+                        rs.getInt("charisma")
+                );
+                monstersList.add(m);
             }
+            monstersTable.setItems(monstersList);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        return list;
-    }
-    public static class User {
-        String name;
-        String email;
-
-        User(String name, String email) {
-            this.name = name;
-            this.email = email;
         }
     }
 }

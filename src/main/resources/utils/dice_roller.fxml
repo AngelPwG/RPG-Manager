@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.RollDiceChatController" spacing="10">
+    <padding>
+        <Insets topRightBottomLeft="15"/>
+    </padding>
+    <Label text="Dice Roller Chat" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <ListView fx:id="chatList" prefHeight="300" />
+    <HBox spacing="10">
+        <TextField fx:id="inputCommand" promptText="Enter roll command (e.g. Aragorn: 1d20+5 or 2d6)" HBox.hgrow="ALWAYS" />
+        <Button text="Roll" onAction="#onRoll" />
+    </HBox>
+</VBox>

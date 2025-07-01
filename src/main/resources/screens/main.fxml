@@ -10,9 +10,9 @@
         <padding>
             <Insets topRightBottomLeft="20"/>
         </padding>
-        <Button text="Home" maxWidth="Infinity" />
+        <Button text="Home" maxWidth="Infinity"/>
+        <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
         <Button text="Characters" maxWidth="Infinity" />
-        <Button text="Bestiary" maxWidth="Infinity" />
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">

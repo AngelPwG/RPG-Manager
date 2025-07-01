@@ -14,8 +14,10 @@
             <Insets topRightBottomLeft="20"/> </padding>
         <Label fx:id="nameLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
         <Label fx:id="systemLabel"/>
-        <ScrollPane prefWidth="290" prefHeight="150">
-            <Text fx:id="descText" wrappingWidth="270" style="-fx-background-color: #bfbfbf;"/>
+        <ScrollPane prefWidth="320" prefHeight="150" style="-fx-background-radius: 10;">
+            <padding>
+                <Insets topRightBottomLeft="10"/> </padding>
+            <Text fx:id="descText" wrappingWidth="280" style="-fx-background-color: #bfbfbf;"/>
         </ScrollPane>
         <Label fx:id="dateLabel" style="-fx-font-size: 10px;" />
         <Label fx:id="stateLabel" />

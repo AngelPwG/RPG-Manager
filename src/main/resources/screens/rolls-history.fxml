@@ -16,7 +16,6 @@
         <Button text="Sessions" maxWidth="Infinity" />
         <Button text="Rolls" maxWidth="Infinity" />
         <Button text="Weaponry" maxWidth="Infinity" />
-
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">
