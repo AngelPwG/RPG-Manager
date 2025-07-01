@@ -12,10 +12,11 @@
         </padding>
         <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
         <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
+        <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
+        <Button text="Campaigns" maxWidth="Infinity" onAction="#goToCampaigns"/>
         <Button text="Characters" maxWidth="Infinity" />
         <Button text="Sessions" maxWidth="Infinity" />
-        <Button text="Rolls" maxWidth="Infinity" />
-        <Button text="Weaponry" maxWidth="Infinity" />
+        <Button text="Rolls" maxWidth="Infinity" onAction="#goToRolls"/>
     </VBox>
     <BorderPane prefWidth="700">
         <top>
@@ -37,5 +38,10 @@
                 </ScrollPane>
             </VBox>
         </center>
+        <bottom>
+            <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+                <Button text="ROLL DICE" onAction="#onRollDice" />
+            </VBox>
+        </bottom>
     </BorderPane>
 </HBox>

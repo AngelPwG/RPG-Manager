@@ -4,7 +4,7 @@
 <?import javafx.geometry.Insets?>
 
 <HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.rpgmanager.controllers.CampaignOverviewController">
+      fx:controller="com.rpgmanager.controllers.RollHistoryController">
 
     <VBox>
         <padding>
@@ -12,61 +12,45 @@
         </padding>
         <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
         <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
-        <Button text="Characters" maxWidth="Infinity" />
+        <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
+        <Button text="Campaigns" maxWidth="Infinity" onAction="#goToCampaigns"/>
+        <Button text="Characters" maxWidth="Infinity" onAction="#goToCharacters"/>
         <Button text="Sessions" maxWidth="Infinity" />
         <Button text="Rolls" maxWidth="Infinity" />
-        <Button text="Weaponry" maxWidth="Infinity" />
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">
         <top>
-            <HBox spacing="10">
-                <padding>
-                    <Insets topRightBottomLeft="10"/>
-                </padding>
-                <Label fx:id="labelCampaignName" style="-fx-font-size: 30px; -fx-font-weight: bold;" />
-                <Region HBox.hgrow="ALWAYS" />
-                <Button text="Export" onAction="#onExport" />
-            </HBox>
+            <ToolBar>
+                <Label text="Rolls History" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+                <Button text="Refresh" onAction="#refresh"/>
+            </ToolBar>
         </top>
 
         <center>
-            <GridPane hgap="20" vgap="20">
+            <VBox spacing="10">
                 <padding>
-                    <Insets topRightBottomLeft="20"/>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
                 </padding>
-                <columnConstraints>
-                    <ColumnConstraints percentWidth="75" />
-                    <ColumnConstraints percentWidth="25" />
-                </columnConstraints>
 
-                <HBox spacing="20" GridPane.columnSpan="2" style="-fx-font-size: 20px;">
-                    <VBox alignment="CENTER">
-                        <Label text="Sessions" />
-                        <Label fx:id="labelSessions" text="0" />
-                    </VBox>
-                    <VBox alignment="CENTER">
-                        <Label text="Characters" />
-                        <Label fx:id="labelCharacters" text="0" />
-                    </VBox>
-                    <VBox alignment="CENTER">
-                        <Label text="Dice rolls" />
-                        <Label fx:id="labelDices" text="0" />
-                    </VBox>
-                </HBox>
+                <TableView fx:id="rollsTable" prefHeight="500" prefWidth="700">
+                    <columns>
+                        <TableColumn fx:id="colCampaign" text="Campaign" prefWidth="100"/>
+                        <TableColumn fx:id="colSession" text="Session" prefWidth="100"/>
+                        <TableColumn fx:id="colCharacter" text="Character" prefWidth="100"/>
+                        <TableColumn fx:id="colType" text="Command" prefWidth="100"/>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
+                        <TableColumn fx:id="colResult" text="Result" prefWidth="100"/>
+                    </columns>
+                </TableView>
 
-                <VBox spacing="10" GridPane.rowIndex="1">
-                    <Label text="Description" />
-                    <TextArea fx:id="descriptionArea" editable="false" wrapText="true" prefRowCount="6" style="-fx-font-size: 15px;"/>
-                    <Label text="System" />
-                    <TextField fx:id="typeField" editable="false" />
-                </VBox>
-
-                <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
-                    <Button text="ROLL DICE" onAction="#onRollDice" />
-                </VBox>
-            </GridPane>
+            </VBox>
         </center>
+        <bottom>
+            <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+                <Button text="ROLL DICE" onAction="#onRollDice" />
+            </VBox>
+        </bottom>
     </BorderPane>
 
 </HBox>

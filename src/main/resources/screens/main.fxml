@@ -12,6 +12,7 @@
         </padding>
         <Button text="Home" maxWidth="Infinity"/>
         <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
+        <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">

@@ -1,6 +1,5 @@
 package com.rpgmanager.controllers;
 
-import com.rpgmanager.models.Campaign;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +36,28 @@ public class GoToController {
     public void goToMonstersDatabase(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/screens/monsters_database.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Monsters Database");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se pudo cargar la página");
+            alert.setContentText("Error al cargar monster_database.fxml");
+            alert.showAndWait();
+        }
+    }
+
+    public void goToItems(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/screens/items_database.fxml"));
             Parent root = fxmlLoader.load();
 
             Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

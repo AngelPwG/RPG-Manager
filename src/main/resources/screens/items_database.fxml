@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rpgmanager.controllers.ItemsController">
+
+    <VBox style="-fx-background-color: #f0f0f0; -fx-border-color: #cccccc;">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
+        <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
+        <Button text="Items" maxWidth="Infinity"/>
+    </VBox>
+
+    <BorderPane HBox.hgrow="ALWAYS">
+        <top>
+            <ToolBar>
+                <Label text="Items Database" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            </ToolBar>
+        </top>
+
+        <center>
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <HBox spacing="10">
+                    <TextField fx:id="searchBar" promptText="Search..." HBox.hgrow="ALWAYS" minWidth="200"/>
+                    <Button text="Search" onAction="#onSearch"/>
+                </HBox>
+
+                <TableView fx:id="itemsTable" prefHeight="500" prefWidth="700">
+                    <columns>
+                        <TableColumn fx:id="colName" text="Name" prefWidth="100"/>
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="100"/>
+                        <TableColumn fx:id="colDescription" text="Description" prefWidth="320"/>
+                        <TableColumn fx:id="colDamageDice" text="Damage Dice" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+            </VBox>
+        </center>
+    </BorderPane>
+
+</HBox>

@@ -43,10 +43,11 @@ public class CampaignCardController {
             CampaignOverviewController controller = loader.getController();
             controller.setCampaign(campaign);
 
-            Stage stage = new Stage();
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
             stage.setTitle("Campaign: " + campaign.getName());
-            stage.setScene(new Scene(root, 1000, 600));
-            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();

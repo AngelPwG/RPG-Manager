@@ -3,11 +3,13 @@ package com.rpgmanager.controllers;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.models.Character;
 import com.rpgmanager.utils.DatabaseManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
@@ -90,10 +92,79 @@ public class CharactersController extends GoToController{
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
+            loadCharacters();
         } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "The window Create Character couldn't load.");
             alert.showAndWait();
         }
     }
+
+    @FXML
+    private void goToCampaigns(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/campaign_resume.fxml"));
+            Parent root = loader.load();
+
+            CampaignOverviewController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Campaign: " + campaign.getName());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "The campaign could not be opened.");
+            alert.showAndWait();
+        }
+    }
+    @FXML
+    private void goToRolls(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/rolls-history.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            RollHistoryController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Roll History");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The page could not load");
+            alert.setContentText("Error to load roll-history.fxml");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void onRollDice() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/utils/dice_roller.fxml"));
+            Parent root = loader.load();
+
+            RollDiceChatController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Stage stage = new Stage();
+            stage.setTitle("Dice Roller - Chat");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading dice chat window.");
+            alert.showAndWait();
+        }
+    }
+
 }

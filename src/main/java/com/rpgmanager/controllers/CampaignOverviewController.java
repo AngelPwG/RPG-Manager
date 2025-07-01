@@ -1,6 +1,7 @@
 package com.rpgmanager.controllers;
 
 import com.rpgmanager.models.Campaign;
+import com.rpgmanager.models.Rolls;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -106,6 +107,31 @@ public class CampaignOverviewController extends GoToController{
         alert.setHeaderText(null);
         alert.setContentText("Export Functionality not implemented yet");
         alert.showAndWait();
+    }
+
+    @FXML
+    private void goToRolls(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/rolls-history.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            RollHistoryController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Roll History");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The page could not load");
+            alert.setContentText("Error to load roll-history.fxml");
+            alert.showAndWait();
+        }
     }
 
     @FXML

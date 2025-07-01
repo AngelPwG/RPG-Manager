@@ -4,17 +4,19 @@ import java.time.LocalDateTime;
 
 public class Rolls {
     private int id;
-    private int characterId;
+    private String character;
     private String type;
-    private int campaignId;
-    private LocalDateTime dateTime;
+    private String session;
+    private String campaign;
+    private String dateTime;
     private String result;
 
-    public Rolls(int id, int characterId, String type, int campaignId, LocalDateTime dateTime, String result) {
+    public Rolls(int id, String character, String type, String session, String campaign, String dateTime, String result) {
         this.id = id;
-        this.characterId = characterId;
+        this.character = character;
         this.type = type;
-        this.campaignId = campaignId;
+        this.session = session;
+        this.campaign = campaign;
         this.dateTime = dateTime;
         this.result = result;
     }
@@ -27,12 +29,12 @@ public class Rolls {
         this.id = id;
     }
 
-    public int getCharacterId() {
-        return characterId;
+    public String getCharacter() {
+        return character;
     }
 
-    public void setCharacterId(int characterId) {
-        this.characterId = characterId;
+    public void setCharacter(String character) {
+        this.character = character;
     }
 
     public String getType() {
@@ -43,19 +45,27 @@ public class Rolls {
         this.type = type;
     }
 
-    public int getCampaignId() {
-        return campaignId;
+    public String getSession() {
+        return session;
     }
 
-    public void setCampaignId(int campaignId) {
-        this.campaignId = campaignId;
+    public void setSession(String session) {
+        this.session = session;
     }
 
-    public LocalDateTime getDateTime() {
+    public String getCampaign() {
+        return campaign;
+    }
+
+    public void setCampaign(String campaign) {
+        this.campaign = campaign;
+    }
+
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
