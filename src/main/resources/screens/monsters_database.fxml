@@ -12,7 +12,6 @@
         </padding>
         <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
         <Button text="Bestiary" maxWidth="Infinity"/>
-        <Button text="Characters" maxWidth="Infinity" />
     </VBox>
 
     <BorderPane HBox.hgrow="ALWAYS">

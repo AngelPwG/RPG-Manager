@@ -50,7 +50,7 @@ public class CampaignCardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "No se pudo abrir la campaña.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "The campaign could not be opened.");
             alert.showAndWait();
         }
     }

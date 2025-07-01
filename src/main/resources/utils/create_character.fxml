@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.CreateCharacterController" spacing="10">
+    <padding>
+        <Insets topRightBottomLeft="20"/>
+    </padding>
+    <Label text="Create Character" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Character Name" />
+    <CheckBox fx:id="type" text="is an NPC?" />
+    <HBox spacing="10">
+        <TextField fx:id="acField" promptText="AC" />
+        <TextField fx:id="hpField" promptText="HP actual / total" />
+    </HBox>
+
+    <GridPane hgap="5" vgap="5">
+        <Label text="STR" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="strField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="DEX" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="dexField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="CON" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="conField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="INT" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="intField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="WIS" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="wisField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <Label text="CHA" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="chaField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    </GridPane>
+
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <VBox spacing="5" alignment="CENTER">
+            <Label text="Available Skills"/>
+            <ListView fx:id="availableSkillsListView" prefWidth="200" prefHeight="250" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="10">
+        <TextArea fx:id="bondsField" promptText="Bonds" prefRowCount="2" />
+        <TextArea fx:id="fearsField" promptText="Fears" prefRowCount="2" />
+    </HBox>
+
+    <HBox spacing="10">
+        <TextArea fx:id="lovesField" promptText="Loves" prefRowCount="2" />
+        <TextArea fx:id="hatesField" promptText="Hates" prefRowCount="2" />
+    </HBox>
+
+    <Button text="Create Character" onAction="#createCharacter" />
+</VBox>

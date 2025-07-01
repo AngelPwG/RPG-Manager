@@ -54,7 +54,6 @@ public class CampaignsController extends GoToController{
                 );
                 campaignList.add(c);
 
-                // Cargar tarjeta individual
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/utils/campaign_card.fxml"));
                 Node card = loader.load();
                 CampaignCardController controller = loader.getController();

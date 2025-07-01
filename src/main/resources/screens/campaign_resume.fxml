@@ -12,7 +12,7 @@
         </padding>
         <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
         <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
-        <Button text="Characters" maxWidth="Infinity" />
+        <Button text="Characters" maxWidth="Infinity" onAction="#goToCharacters"/>
         <Button text="Sessions" maxWidth="Infinity" />
         <Button text="Rolls" maxWidth="Infinity" />
         <Button text="Weaponry" maxWidth="Infinity" />

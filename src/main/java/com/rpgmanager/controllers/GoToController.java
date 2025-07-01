@@ -1,5 +1,6 @@
 package com.rpgmanager.controllers;
 
+import com.rpgmanager.models.Campaign;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,4 +55,5 @@ public class GoToController {
             alert.showAndWait();
         }
     }
+
 }

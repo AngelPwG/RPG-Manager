@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.CharacterCardController" prefWidth="220" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #f8f8f8;">
+    <VBox spacing="5">
+        <padding>
+            <Insets topRightBottomLeft="10"/>
+        </padding>
+        <HBox spacing="5">
+            <Label fx:id="nameLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+            <Label fx:id="typeLabel" style="-fx-font-size: 12px; -fx-text-fill: gray;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="✎" fx:id="editBtn" onAction="#onEdit" maxWidth="20" />
+        </HBox>
+
+        <HBox spacing="10">
+            <VBox>
+                <Label text="AC" />
+                <Label fx:id="acLabel" />
+            </VBox>
+            <VBox>
+                <Label text="HP" />
+                <Label fx:id="hpLabel" />
+            </VBox>
+        </HBox>
+
+        <Label fx:id="descriptionLabel" wrapText="true" maxWidth="200" />
+    </VBox>
+</AnchorPane>

@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,5 +106,30 @@ public class CampaignOverviewController extends GoToController{
         alert.setHeaderText(null);
         alert.setContentText("Export Functionality not implemented yet");
         alert.showAndWait();
+    }
+
+    @FXML
+    private void goToCharacters(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/characters.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            CharactersController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Characters");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The page could not load");
+            alert.setContentText("Error to load character.fxml");
+            alert.showAndWait();
+        }
     }
 }
