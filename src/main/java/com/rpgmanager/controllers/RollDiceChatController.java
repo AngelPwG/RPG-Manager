@@ -20,6 +20,7 @@ public class RollDiceChatController {
     @FXML
     private TextField inputCommand;
 
+    private SessionStartedController sessionStartedController;
     private Campaign campaign;
     private int sessionId = -1;
 
@@ -29,6 +30,10 @@ public class RollDiceChatController {
 
     public void setSession(int sessionId){
         this.sessionId = sessionId;
+    }
+
+    public void setSessionStartedController(SessionStartedController sessionStartedController){
+        this.sessionStartedController = sessionStartedController;
     }
 
     @FXML
@@ -55,6 +60,8 @@ public class RollDiceChatController {
 
         String message = (personaje != null ? personaje : "DM") + ": " + command + " → " + rs;
         chatList.getItems().add(message);
+
+        sessionStartedController.addRollDice(message);
 
         saveOnDB(personaje, command, rs);
         inputCommand.clear();

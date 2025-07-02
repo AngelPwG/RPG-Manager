@@ -46,6 +46,12 @@ public class SessionStartedController {
         eventField.clear();
     }
 
+    public void addRollDice(String result){
+        eventsList.getItems().add("Dice roll result = " + result);
+        saveEvent("DiceCommand", "Dice roll result = " + result);
+        eventField.clear();
+    }
+
     private void saveEvent(String name, String texto) {
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "INSERT INTO eventNotes (session_id, name, description, creation_at) VALUES (?, ?, ?, ?)";
@@ -90,6 +96,7 @@ public class SessionStartedController {
             Parent root = loader.load();
 
             RollDiceChatController controller = loader.getController();
+            controller.setSessionStartedController(this);
             controller.setCampaign(campaign);
             controller.setSession(sessionId);
 
