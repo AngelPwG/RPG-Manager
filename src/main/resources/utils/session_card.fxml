@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.SessionCardController" prefWidth="800" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #ccc;">
+    <VBox spacing="5" prefWidth="800">
+        <padding>
+            <Insets topRightBottomLeft="10"/>
+        </padding>
+        <Label fx:id="labelCreated" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+        <Label fx:id="labelEnded" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+        <Label fx:id="labelName" wrapText="true" maxWidth="100" />
+        <Label fx:id="labelResume" wrapText="true" maxWidth="800" />
+        <HBox spacing="10">
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="detailsBtn" text="Details" onAction="#showDetails" />
+        </HBox>
+    </VBox>
+</AnchorPane>

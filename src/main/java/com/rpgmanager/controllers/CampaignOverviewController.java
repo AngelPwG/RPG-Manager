@@ -158,4 +158,29 @@ public class CampaignOverviewController extends GoToController{
             alert.showAndWait();
         }
     }
+
+    @FXML
+    private void goToSessions(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/sessions.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            SessionController controller = loader.getController();
+            controller.setCampaign(campaign);
+
+            Scene scene = new Scene(root, 1000, 600);
+            stage.setScene(scene);
+            stage.setTitle("Sessions");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The page could not load");
+            alert.setContentText("Error to load sessions.fxml");
+            alert.showAndWait();
+        }
+    }
 }

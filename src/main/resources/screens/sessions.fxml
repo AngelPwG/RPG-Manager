@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <?import javafx.geometry.Insets?>
-
-<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.rpgmanager.controllers.CharactersController">
-
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rpgmanager.controllers.SessionController">
     <VBox>
         <padding>
             <Insets topRightBottomLeft="20"/>
@@ -14,30 +13,27 @@
         <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
         <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
         <Button text="Campaigns" maxWidth="Infinity" onAction="#goToCampaigns"/>
-        <Button text="Characters" maxWidth="Infinity" />
-        <Button text="Sessions" maxWidth="Infinity" onAction="#goToSessions"/>
+        <Button text="Characters" maxWidth="Infinity" onAction="#goToCharacters"/>
+        <Button text="Sessions" maxWidth="Infinity" />
         <Button text="Rolls" maxWidth="Infinity" onAction="#goToRolls"/>
     </VBox>
-    <BorderPane prefWidth="700">
+
+    <BorderPane HBox.hgrow="ALWAYS">
         <top>
             <HBox spacing="10">
                 <Label fx:id="campaignTitle" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
                 <Region VBox.vgrow="ALWAYS" />
-                <Button text="Add Character" onAction="#onAddCharacter" />
-                <Button text="Refresh" onAction="#refresh"/>
+                <Button text="New Session" onAction="#onNewSession" />
             </HBox>
         </top>
 
         <center>
-            <VBox spacing="20">
-                <ScrollPane fx:id="myScrollPane" prefWidth="400" prefHeight="600">
-                    <padding>
-                        <Insets topRightBottomLeft="10"/>
-                    </padding>
-                    <FlowPane fx:id="charactersContainer" hgap="15" vgap="15">
-                    </FlowPane>
-                </ScrollPane>
-            </VBox>
+            <ScrollPane fitToWidth="true">
+                <padding>
+                    <Insets topRightBottomLeft="10"/>
+                </padding>
+                <FlowPane fx:id="sessionsContainer" hgap="15" vgap="15" />
+            </ScrollPane>
         </center>
         <bottom>
             <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">

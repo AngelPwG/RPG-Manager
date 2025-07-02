@@ -34,7 +34,7 @@ public class ItemsController extends GoToController{
     @FXML
     private TableColumn<Items, String> colDamageDice;
 
-    private ObservableList<Items> itemsList = FXCollections.observableArrayList();
+    private final ObservableList<Items> itemsList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {

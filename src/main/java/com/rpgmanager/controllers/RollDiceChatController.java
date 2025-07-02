@@ -21,9 +21,14 @@ public class RollDiceChatController {
     private TextField inputCommand;
 
     private Campaign campaign;
+    private int sessionId = -1;
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
+    }
+
+    public void setSession(int sessionId){
+        this.sessionId = sessionId;
     }
 
     @FXML
@@ -92,12 +97,13 @@ public class RollDiceChatController {
             }
 
             PreparedStatement insert = conn.prepareStatement(
-                    "INSERT INTO rolls (campaign_id, character_id, type, result, date_time) VALUES (?, ?, ?, ?, ?)");
+                    "INSERT INTO rolls (campaign_id, session_id,character_id, type, result, date_time) VALUES (?, ?, ?, ?, ?, ?)");
             insert.setInt(1, campaign.getId());
-            if (characterId != null) insert.setInt(2, characterId); else insert.setNull(2, java.sql.Types.INTEGER);
-            insert.setString(3, command);
-            insert.setString(4, result);
-            insert.setString(5, LocalDateTime.now().toString());
+            if (sessionId != -1) insert.setInt(2, sessionId); else insert.setNull(2, java.sql.Types.INTEGER);
+            if (characterId != null) insert.setInt(3, characterId); else insert.setNull(3, java.sql.Types.INTEGER);
+            insert.setString(4, command);
+            insert.setString(5, result);
+            insert.setString(6, LocalDateTime.now().toString());
             insert.executeUpdate();
 
         } catch (Exception e) {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.SessionStartedController">
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="20"/>
+            </padding>
+            <Label fx:id="sessionTitle" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="End Session" onAction="#endSession" />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="20"/>
+            </padding>
+            <ListView fx:id="eventsList" prefHeight="300" />
+            <HBox spacing="10">
+                <TextField fx:id="nameField" promptText="Write a name for the event" prefWidth="100" />
+                <TextField fx:id="eventField" promptText="Describe a new event..." HBox.hgrow="ALWAYS" />
+                <Button text="Add Event" onAction="#addEvent" />
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+            <Button text="ROLL DICE" onAction="#onRollDice" />
+        </VBox>
+    </bottom>
+</BorderPane>

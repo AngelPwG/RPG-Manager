@@ -31,8 +31,8 @@ public class CreateCharacterController {
 
     private Campaign campaign;
 
-    private ObservableList<Skill> allSkills = FXCollections.observableArrayList();
-    private ObservableList<Skill> selectedCharacterSkills = FXCollections.observableArrayList();
+    private final ObservableList<Skill> allSkills = FXCollections.observableArrayList();
+    private final ObservableList<Skill> selectedCharacterSkills = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.CreateSessionController" spacing="10">
+    <padding>
+        <Insets topRightBottomLeft="20"/>
+    </padding>
+    <Label text="Start a new Session" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <TextField fx:id="sessionTitle" promptText="Title or short description" />
+    <Label text="Select the character that will participate:" />
+    <ListView fx:id="charactersList" prefHeight="150" />
+
+    <HBox spacing="10">
+        <Button text="Start Session" onAction="#saveSession" />
+        <Button text="Cancel" onAction="#cancel" />
+    </HBox>
+</VBox>

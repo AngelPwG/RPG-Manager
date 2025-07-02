@@ -15,7 +15,7 @@
         <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
         <Button text="Campaigns" maxWidth="Infinity" onAction="#goToCampaigns"/>
         <Button text="Characters" maxWidth="Infinity" onAction="#goToCharacters"/>
-        <Button text="Sessions" maxWidth="Infinity" />
+        <Button text="Sessions" maxWidth="Infinity" onAction="#goToSessions"/>
         <Button text="Rolls" maxWidth="Infinity" />
     </VBox>
 

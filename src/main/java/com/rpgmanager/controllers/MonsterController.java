@@ -57,7 +57,7 @@ public class MonsterController extends GoToController{
     @FXML
     private TableColumn<Monsters, String> colDesc;
 
-    private ObservableList<Monsters> monstersList = FXCollections.observableArrayList();
+    private final ObservableList<Monsters> monstersList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
