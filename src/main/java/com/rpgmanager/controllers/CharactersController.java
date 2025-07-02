@@ -1,5 +1,8 @@
 package com.rpgmanager.controllers;
 
+import com.rpgmanager.controllers.utils.CharacterCardController;
+import com.rpgmanager.controllers.utils.CreateCharacterController;
+import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.models.Character;
 import com.rpgmanager.utils.DatabaseManager;

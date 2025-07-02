@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.CharacterCardController" prefWidth="220" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #f8f8f8;">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.utils.CharacterCardController" prefWidth="220" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #f8f8f8;">
     <VBox spacing="5">
         <padding>
             <Insets topRightBottomLeft="10"/>

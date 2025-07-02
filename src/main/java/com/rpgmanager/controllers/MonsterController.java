@@ -2,19 +2,13 @@ package com.rpgmanager.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.rpgmanager.models.Monsters;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -77,14 +71,12 @@ public class MonsterController extends GoToController{
             TableCell<Monsters, String> cell = new TableCell<>();
             Text text = new Text();
             cell.setGraphic(text);
-            cell.setPrefHeight(Control.USE_COMPUTED_SIZE); // Allows the cell to grow in height
+            cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
 
-            text.wrappingWidthProperty().bind(colDesc.widthProperty()); // Text wraps based on column width
+            text.wrappingWidthProperty().bind(colDesc.widthProperty());
 
-            // Update the cell's text and recalculate preferred height
             cell.itemProperty().addListener((obs, oldVal, newVal) -> {
                 text.setText(newVal);
-                // This listener ensures the cell's height is re-evaluated when content changes
                 cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
             });
             return cell;
@@ -95,18 +87,18 @@ public class MonsterController extends GoToController{
 
     @FXML
     private void onSearch() {
-        String texto = searchBar.getText().trim().toLowerCase();
-        loadMonsters(texto);
+        String text = searchBar.getText().trim().toLowerCase();
+        loadMonsters(text);
     }
 
-    private void loadMonsters(String filtro) {
+    private void loadMonsters(String filter) {
         monstersList.clear();
 
         String sql = "SELECT m.id, m.name, m.description, m.hp, m.ac, s.strength, s.dexterity, s.constitution, s.intelligence, s.wisdom, s.charisma " +
                 "FROM monsters m JOIN Stats s ON m.stats_id = s.id";
 
-        if (!filtro.isEmpty()) {
-            sql += " WHERE lower(m.name) LIKE '%" + filtro + "%'";
+        if (!filter.isEmpty()) {
+            sql += " WHERE lower(m.name) LIKE '%" + filter + "%'";
         }
 
         try (Connection conn = DatabaseManager.getConnection();

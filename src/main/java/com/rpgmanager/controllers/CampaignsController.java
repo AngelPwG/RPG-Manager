@@ -1,21 +1,18 @@
 package com.rpgmanager.controllers;
 
+import com.rpgmanager.controllers.utils.CampaignCardController;
+import com.rpgmanager.controllers.utils.NewCampaignController;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import com.rpgmanager.models.Campaign;
-import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.Node;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;

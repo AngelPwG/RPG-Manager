@@ -1,7 +1,7 @@
 package com.rpgmanager.controllers;
 
+import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
-import com.rpgmanager.models.Rolls;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

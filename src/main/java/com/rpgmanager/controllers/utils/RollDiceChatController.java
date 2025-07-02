@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.utils;
 
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.utils.DatabaseManager;

@@ -1,5 +1,6 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.utils;
 
+import com.rpgmanager.controllers.CampaignOverviewController;
 import com.rpgmanager.models.Campaign;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

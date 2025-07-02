@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.utils;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -82,7 +82,7 @@ public class NewCampaignController {
 
     public static void showWindow() {
         try {
-            FXMLLoader loader = new FXMLLoader(NewCampaignController.class.getResource("/screens/new_campaign.fxml"));
+            FXMLLoader loader = new FXMLLoader(NewCampaignController.class.getResource("/utils/new_campaign.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Create New Campaign");

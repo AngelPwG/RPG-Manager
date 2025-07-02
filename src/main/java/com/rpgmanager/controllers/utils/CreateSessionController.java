@@ -1,5 +1,6 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.utils;
 
+import com.rpgmanager.controllers.SessionController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.fxml.FXML;
@@ -7,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -23,7 +23,7 @@ public class CreateSessionController {
     @FXML private ListView<String> charactersList;
 
     private Campaign campaign;
-    private  SessionController controller;
+    private SessionController controller;
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;

@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.SessionStartedController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.utils.SessionStartedController">
     <top>
         <HBox spacing="10">
             <padding>

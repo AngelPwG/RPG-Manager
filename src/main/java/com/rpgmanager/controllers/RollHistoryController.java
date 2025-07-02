@@ -1,8 +1,7 @@
 package com.rpgmanager.controllers;
 
+import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
-import com.rpgmanager.models.Rolls;
-import com.rpgmanager.models.Monsters;
 import com.rpgmanager.models.Rolls;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.collections.FXCollections;
@@ -14,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 

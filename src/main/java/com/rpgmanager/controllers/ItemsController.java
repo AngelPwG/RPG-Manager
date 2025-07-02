@@ -1,7 +1,6 @@
 package com.rpgmanager.controllers;
 
 import com.rpgmanager.models.Items;
-import com.rpgmanager.models.Monsters;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,8 +64,8 @@ public class ItemsController extends GoToController{
 
     @FXML
     private void onSearch() {
-        String texto = searchBar.getText().trim().toLowerCase();
-        loadItems(texto);
+        String text = searchBar.getText().trim().toLowerCase();
+        loadItems(text);
     }
 
     private void loadItems(String filtro) {
