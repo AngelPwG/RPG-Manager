@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.utils;
 
 import com.rpgmanager.models.Session;
 import javafx.fxml.FXML;

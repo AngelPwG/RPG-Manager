@@ -87,6 +87,8 @@ public class CreateSessionController {
             return;
         }
 
+        if(!campaign.getState().equals("Started")) campaign.setState("Started");
+
         close();
     }
 

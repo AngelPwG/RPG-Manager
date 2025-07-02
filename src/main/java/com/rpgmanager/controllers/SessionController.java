@@ -2,6 +2,7 @@ package com.rpgmanager.controllers;
 
 import com.rpgmanager.controllers.utils.CreateSessionController;
 import com.rpgmanager.controllers.utils.RollDiceChatController;
+import com.rpgmanager.controllers.utils.SessionCardController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.models.Session;
 import com.rpgmanager.utils.DatabaseManager;
@@ -42,7 +43,6 @@ public class SessionController extends GoToController{
 
     private void loadSessions() {
         sessionsContainer.getChildren().clear();
-        List<String> sessions = new ArrayList<>();
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "SELECT id, created_at, ended_at, name, final_resume FROM sessions WHERE campaign_id = ? ORDER BY created_at DESC";
             PreparedStatement stmt = conn.prepareStatement(sql);
