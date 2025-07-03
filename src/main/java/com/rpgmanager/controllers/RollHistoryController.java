@@ -21,7 +21,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class RollHistoryController extends GoToController{
+public class RollHistoryController extends OnCampaignGoToController{
 
     @FXML
     private TableView<Rolls> rollsTable;
@@ -45,8 +45,6 @@ public class RollHistoryController extends GoToController{
     private TableColumn<Rolls, String> colResult;
 
     private final ObservableList<Rolls> rollList = FXCollections.observableArrayList();
-
-    private Campaign campaign;
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
@@ -110,53 +108,6 @@ public class RollHistoryController extends GoToController{
     }
 
     @FXML
-    private void goToCampaigns(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/campaign_resume.fxml"));
-            Parent root = loader.load();
-
-            CampaignOverviewController controller = loader.getController();
-            controller.setCampaign(campaign);
-
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root, 1000, 600);
-            stage.setScene(scene);
-            stage.setTitle("Campaign: " + campaign.getName());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The campaign could not be opened.");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void goToCharacters(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/characters.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            CharactersController controller = loader.getController();
-            controller.setCampaign(campaign);
-
-            Scene scene = new Scene(root, 1000, 600);
-            stage.setScene(scene);
-            stage.setTitle("Characters");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("The page could not load");
-            alert.setContentText("Error to load character.fxml");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
     private void onRollDice() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/utils/dice_roller.fxml"));
@@ -173,31 +124,6 @@ public class RollHistoryController extends GoToController{
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading dice chat window.");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void goToSessions(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/sessions.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            SessionController controller = loader.getController();
-            controller.setCampaign(campaign);
-
-            Scene scene = new Scene(root, 1000, 600);
-            stage.setScene(scene);
-            stage.setTitle("Sessions");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("The page could not load");
-            alert.setContentText("Error to load sessions.fxml");
             alert.showAndWait();
         }
     }

@@ -61,7 +61,7 @@ public class RollDiceChatController {
         String message = (personaje != null ? personaje : "DM") + ": " + command + " → " + rs;
         chatList.getItems().add(message);
 
-        sessionStartedController.addRollDice(message);
+        if (sessionStartedController != null ) sessionStartedController.addRollDice(message);
 
         saveOnDB(personaje, command, rs);
         inputCommand.clear();
