@@ -14,4 +14,6 @@ module com.rpgmanager {
     opens com.rpgmanager.controllers to javafx.base, javafx.fxml;
     exports com.rpgmanager.controllers.utils;
     opens com.rpgmanager.controllers.utils to javafx.base, javafx.fxml;
+    exports com.rpgmanager.controllers.screens;
+    opens com.rpgmanager.controllers.screens to javafx.base, javafx.fxml;
 }

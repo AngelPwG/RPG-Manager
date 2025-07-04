@@ -1,22 +1,19 @@
 package com.rpgmanager.controllers.utils;
 
-import com.rpgmanager.controllers.CampaignOverviewController;
+import com.rpgmanager.controllers.MainController;
 import com.rpgmanager.models.Campaign;
+import com.rpgmanager.utils.MainAware;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class CampaignCardController {
+
+    private MainController mainController;
 
     private Campaign campaign;
 
@@ -25,6 +22,11 @@ public class CampaignCardController {
     @FXML private Text descText;
     @FXML private Label dateLabel;
     @FXML private Label stateLabel;
+
+    public void setMainController(MainController mainController) {
+        if(mainController == null) System.out.println("mainController null en cardCampaign");
+        this.mainController = mainController;
+    }
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
@@ -38,19 +40,9 @@ public class CampaignCardController {
     @FXML
     private void onOpenCampaign(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/screens/campaign_resume.fxml"));
-            Parent root = loader.load();
-
-            CampaignOverviewController controller = loader.getController();
-            controller.setCampaign(campaign);
-
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root, 1000, 600);
-            stage.setScene(scene);
-            stage.setTitle("Campaign: " + campaign.getName());
-
-        } catch (IOException e) {
+            this.mainController.setCampaign(campaign);
+            this.mainController.setContentWithCampaign("/screens/campaign_resume.fxml");
+        } catch (NullPointerException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "The campaign could not be opened.");
             alert.showAndWait();

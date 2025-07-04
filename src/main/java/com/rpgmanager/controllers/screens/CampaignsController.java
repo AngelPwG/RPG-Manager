@@ -1,8 +1,11 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
+import com.rpgmanager.controllers.MainController;
 import com.rpgmanager.controllers.utils.CampaignCardController;
 import com.rpgmanager.controllers.utils.NewCampaignController;
+import com.rpgmanager.utils.CampaignAware;
 import com.rpgmanager.utils.DatabaseManager;
+import com.rpgmanager.utils.MainAware;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,17 +21,30 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 
-public class CampaignsController extends GoToController{
+public class CampaignsController implements CampaignAware, MainAware {
 
     private final ObservableList<Campaign> campaignList = FXCollections.observableArrayList();
     @FXML private FlowPane cardContainer;
 
-    @FXML
-    public void initialize() {
-        // Limpia el contenedor por si hay algo (opcional)
+    private MainController mainController;
+    private Campaign currentCampaign;
+
+    @Override
+    public void setCampaign(Campaign campaign) {
+        if (campaign != null){
+            this.currentCampaign = campaign;
+        }
+    }
+
+    @Override
+    public void setMainController(MainController controller) {
+        this.mainController = controller;
+        if(this.mainController == null) System.out.println("mainController null en campaigns");
+    }
+
+    public void initData(){
         cardContainer.getChildren().clear();
 
-        // Carga las campañas y crea las tarjetas en el contenedor
         loadCampaigns();
     }
 
@@ -55,6 +71,7 @@ public class CampaignsController extends GoToController{
                 Node card = loader.load();
                 CampaignCardController controller = loader.getController();
                 controller.setCampaign(c);
+                controller.setMainController(this.mainController);
                 cardContainer.getChildren().add(card);
             }
 

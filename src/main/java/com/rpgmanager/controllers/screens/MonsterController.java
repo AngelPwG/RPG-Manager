@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

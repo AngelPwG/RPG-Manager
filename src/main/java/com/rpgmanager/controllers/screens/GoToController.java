@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

@@ -3,41 +3,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.rpgmanager.controllers.CampaignsController">
+<BorderPane HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.rpgmanager.controllers.screens.CampaignsController">
+    <top>
+        <ToolBar>
+            <Label text="Campaigns" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="New Campaign" onAction="#onNewCampaign" />
+        </ToolBar>
+    </top>
 
-    <VBox>
-        <padding>
-            <Insets topRightBottomLeft="20"/>
-        </padding>
-        <Button text="Home" maxWidth="Infinity"/>
-        <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
-        <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
-    </VBox>
-
-    <BorderPane HBox.hgrow="ALWAYS">
-        <top>
-            <ToolBar>
-                <Label text="Campaigns" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
-                <Region HBox.hgrow="ALWAYS" />
-                <Button text="New Campaign" onAction="#onNewCampaign" />
-            </ToolBar>
-        </top>
-
-        <center>
-            <VBox spacing="10">
-                <padding>
-                    <Insets topRightBottomLeft="20"/>
-                </padding>
-                <ScrollPane fitToWidth="true">
-                    <FlowPane fx:id="cardContainer" prefWidth="600" hgap="15" vgap="15">
-                        <padding>
-                            <Insets topRightBottomLeft="15"/>
-                        </padding>
-                    </FlowPane>
-                </ScrollPane>
-            </VBox>
-        </center>
-    </BorderPane>
-
-</HBox>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="20"/>
+            </padding>
+            <ScrollPane fitToWidth="true">
+                <FlowPane fx:id="cardContainer" prefWidth="600" hgap="15" vgap="15">
+                    <padding>
+                        <Insets topRightBottomLeft="15"/>
+                    </padding>
+                </FlowPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

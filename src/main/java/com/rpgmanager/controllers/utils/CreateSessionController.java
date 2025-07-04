@@ -1,6 +1,6 @@
 package com.rpgmanager.controllers.utils;
 
-import com.rpgmanager.controllers.SessionController;
+import com.rpgmanager.controllers.screens.SessionController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.fxml.FXML;

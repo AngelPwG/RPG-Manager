@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
 import com.rpgmanager.controllers.utils.CreateSessionController;
 import com.rpgmanager.controllers.utils.RollDiceChatController;

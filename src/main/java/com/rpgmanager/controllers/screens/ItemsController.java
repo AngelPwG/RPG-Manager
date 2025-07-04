@@ -1,4 +1,4 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
 import com.rpgmanager.models.Items;
 import com.rpgmanager.utils.DatabaseManager;

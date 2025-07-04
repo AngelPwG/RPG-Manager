@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rpgmanager.controllers.SidebarController">
+    <padding><Insets topRightBottomLeft="20"/></padding>
+    <Button text="Home" maxWidth="Infinity" onAction="#goToHome"/>
+    <Button text="Bestiary" maxWidth="Infinity" onAction="#goToMonstersDatabase"/>
+    <Button text="Items" maxWidth="Infinity" onAction="#goToItems"/>
+    <Button text="Campaigns" maxWidth="Infinity" onAction="#goToCampaigns"/>
+    <Button text="Characters" maxWidth="Infinity" onAction="#goToCharacters"/>
+    <Button text="Sessions" maxWidth="Infinity" onAction="#goToSessions"/>
+    <Button text="Rolls" maxWidth="Infinity" onAction="#goToRolls"/>
+</VBox>

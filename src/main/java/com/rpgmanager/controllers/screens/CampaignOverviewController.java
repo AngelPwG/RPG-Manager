@@ -1,9 +1,9 @@
-package com.rpgmanager.controllers;
+package com.rpgmanager.controllers.screens;
 
 import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
+import com.rpgmanager.utils.CampaignAware;
 import com.rpgmanager.utils.DatabaseManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,12 +12,11 @@ import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class CampaignOverviewController extends OnCampaignGoToController{
+public class CampaignOverviewController implements CampaignAware {
 
     @FXML
     private Label labelCampaignName;
@@ -36,6 +35,8 @@ public class CampaignOverviewController extends OnCampaignGoToController{
 
     @FXML
     private TextField typeField;
+
+    private Campaign campaign;
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
