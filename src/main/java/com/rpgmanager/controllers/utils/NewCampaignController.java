@@ -41,7 +41,7 @@ public class NewCampaignController {
         String description = descField.getText().trim();
 
         if (name.isEmpty() || system == null || system.isEmpty()) {
-            showAlert("Name and System are obligatory.");
+            showAlert("Nombre y sistema son obligatorios.");
             return;
         }
 
@@ -52,11 +52,11 @@ public class NewCampaignController {
             stmt.setString(2, system);
             stmt.setString(3, description);
             stmt.setString(4, LocalDateTime.now().toString());
-            stmt.setString(5, "Not started");
+            stmt.setString(5, "No iniciado");
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error to save the campaign.");
+            showAlert("Error al guardar la campaña.");
             return;
         }
 
@@ -85,13 +85,13 @@ public class NewCampaignController {
             FXMLLoader loader = new FXMLLoader(NewCampaignController.class.getResource("/utils/new_campaign.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Create New Campaign");
+            stage.setTitle("Crear una nueva campaña");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The window New Campaign couldn't load.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La ventana de nueva campaña no pudo abrir.");
             alert.showAndWait();
         }
     }

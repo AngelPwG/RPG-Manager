@@ -61,7 +61,7 @@ public class CreateSessionController {
         String name = sessionTitle.getText().trim();
 
         if (name.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please write a title or a short description.");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Por favor escribe una breve o pequeña descripción.");
             alert.showAndWait();
             return;
         }
@@ -82,7 +82,7 @@ public class CreateSessionController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error to start the session.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al iniciar la sesión.");
             alert.showAndWait();
             return;
         }
@@ -128,7 +128,7 @@ public class CreateSessionController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The window session started could not load.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La ventana de campaña creada no puedo empezar.");
             alert.showAndWait();
         }
     }

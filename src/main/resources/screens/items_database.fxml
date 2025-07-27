@@ -7,7 +7,7 @@
             fx:controller="com.rpgmanager.controllers.screens.ItemsController">
     <top>
         <ToolBar>
-            <Label text="Items Database" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Label text="Objetos Base de datos" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
         </ToolBar>
     </top>
 
@@ -19,15 +19,15 @@
 
             <HBox spacing="10">
                 <TextField fx:id="searchBar" promptText="Search..." HBox.hgrow="ALWAYS" minWidth="200"/>
-                <Button text="Search" onAction="#onSearch"/>
+                <Button text="Bescar" onAction="#onSearch"/>
             </HBox>
 
             <TableView fx:id="itemsTable" prefHeight="500" prefWidth="700">
                 <columns>
-                    <TableColumn fx:id="colName" text="Name" prefWidth="100"/>
-                    <TableColumn fx:id="colCategory" text="Category" prefWidth="100"/>
-                    <TableColumn fx:id="colDescription" text="Description" prefWidth="320"/>
-                    <TableColumn fx:id="colDamageDice" text="Damage Dice" prefWidth="100"/>
+                    <TableColumn fx:id="colName" text="Nombre" prefWidth="100"/>
+                    <TableColumn fx:id="colCategory" text="Categoría" prefWidth="100"/>
+                    <TableColumn fx:id="colDescription" text="Descripción" prefWidth="320"/>
+                    <TableColumn fx:id="colDamageDice" text="Tirada de daño" prefWidth="100"/>
                 </columns>
             </TableView>
 

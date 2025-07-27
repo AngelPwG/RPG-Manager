@@ -5,10 +5,10 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.rpgmanager.controllers.utils.NewCampaignController" spacing="10">
     <padding> <Insets topRightBottomLeft="20"/> </padding>
-    <Label text="New Campaign" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-    <TextField fx:id="nameField" promptText="Campaign Name" />
-    <ComboBox fx:id="systemField" promptText="Game System" />
-    <TextArea fx:id="descField" promptText="Description" prefRowCount="4" wrapText="true"/>
+    <Label text="Nueva campaña" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Nombre de la campaña" />
+    <ComboBox fx:id="systemField" promptText="Sistema de juego" />
+    <TextArea fx:id="descField" promptText="Descripción" prefRowCount="4" wrapText="true"/>
     <HBox spacing="10">
         <Button text="Crear" onAction="#createCampaign" />
         <Button text="Cancelar" onAction="#cancel" />

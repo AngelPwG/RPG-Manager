@@ -5,10 +5,12 @@ import com.rpgmanager.utils.MainAware;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Node;
 import com.rpgmanager.models.Campaign;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +31,9 @@ public class MainController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Sidebar.fxml"));
             Node sidebarNode = loader.load();
+
+            ((Parent) sidebarNode).getStylesheets().add(getClass().getResource("/styles/sidebar_style.css").toExternalForm());
+
             SidebarController sidebarController = loader.getController();
             sidebarController.setMainController(this);
             sidebar.getChildren().setAll(sidebarNode);
@@ -36,6 +41,7 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void setCampaign(Campaign campaign) {

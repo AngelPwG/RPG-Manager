@@ -31,10 +31,10 @@ public class CampaignCardController {
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
         nameLabel.setText(campaign.getName());
-        systemLabel.setText("System: " + campaign.getSystem());
+        systemLabel.setText("Sistema: " + campaign.getSystem());
         descText.setText(campaign.getDescription());
-        dateLabel.setText("Created: " + campaign.getCreated_at().format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
-        stateLabel.setText("State: " + campaign.getState());
+        dateLabel.setText("Creado: " + campaign.getCreated_at().format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+        stateLabel.setText("Estado: " + campaign.getState());
     }
 
     @FXML
@@ -44,7 +44,7 @@ public class CampaignCardController {
             this.mainController.setContentWithCampaign("/screens/campaign_resume.fxml");
         } catch (NullPointerException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The campaign could not be opened.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La campaña no pudo abrir.");
             alert.showAndWait();
         }
     }

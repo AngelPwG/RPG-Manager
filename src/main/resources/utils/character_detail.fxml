@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<VBox spacing="10" alignment="BASELINE_LEFT"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rpgmanager.controllers.utils.CharacterDetailController">
+
+    <padding>
+        <Insets top="10" right="20" bottom="20" left="20"/>
+    </padding>
+
+
+
+    <Label text="Nombre:"/> <TextField fx:id="nameField" disable="true" />
+    <Label text="Es NPC:"/> <CheckBox fx:id="isNpcBox" disable="true" />
+    <Label text="AC:"/> <TextField fx:id="acField" disable="true" />
+    <Label text="HP:"/> <TextField fx:id="hpField" disable="true" />
+    <Label text="Lazos:"/> <TextField fx:id="bondsField" disable="true"/>
+    <Label text="Miedos:" /> <TextField fx:id="fearsField" disable="true" />
+    <Label text="Ama:" /> <TextField fx:id="lovesField" disable="true" />
+    <Label text="Odia:" /> <TextField fx:id="hatesField" disable="true" />
+    <HBox spacing="10" >
+        <Button text="Cerrar" onAction="#onClose"/>
+        <Button fx:id="editButton" text="Editar personaje" onAction="#toggleEditMode" />
+        <Button text="Guardar" fx:id="saveButton" onAction="#saveCharacterChanges" visible="false"/>
+    </HBox>
+
+</VBox>

@@ -7,9 +7,9 @@
             fx:controller="com.rpgmanager.controllers.screens.CampaignsController">
     <top>
         <ToolBar>
-            <Label text="Campaigns" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Label text="Campañas" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button text="New Campaign" onAction="#onNewCampaign" />
+            <Button text="Nueva campaña" onAction="#onNewCampaign" />
         </ToolBar>
     </top>
 
@@ -18,7 +18,7 @@
             <padding>
                 <Insets topRightBottomLeft="20"/>
             </padding>
-            <ScrollPane fitToWidth="true">
+            <ScrollPane fitToWidth="true" >
                 <FlowPane fx:id="cardContainer" prefWidth="600" hgap="15" vgap="15">
                     <padding>
                         <Insets topRightBottomLeft="15"/>

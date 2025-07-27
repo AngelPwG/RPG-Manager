@@ -12,7 +12,7 @@
             </padding>
             <Label fx:id="labelCampaignName" style="-fx-font-size: 30px; -fx-font-weight: bold;" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button text="Export" onAction="#onExport" />
+            <Button text="Eliminar" onAction="#deleteCampaign" />
         </HBox>
     </top>
 
@@ -28,28 +28,28 @@
 
             <HBox spacing="20" GridPane.columnSpan="2" style="-fx-font-size: 20px;">
                 <VBox alignment="CENTER">
-                    <Label text="Sessions" />
+                    <Label text="Sesiones" />
                     <Label fx:id="labelSessions" text="0" />
                 </VBox>
                 <VBox alignment="CENTER">
-                    <Label text="Characters" />
+                    <Label text="Personajes" />
                     <Label fx:id="labelCharacters" text="0" />
                 </VBox>
                 <VBox alignment="CENTER">
-                    <Label text="Dice rolls" />
+                    <Label text="Tiradas de dado" />
                     <Label fx:id="labelDices" text="0" />
                 </VBox>
             </HBox>
 
             <VBox spacing="10" GridPane.rowIndex="1">
-                <Label text="Description" />
+                <Label text="Descripción" />
                 <TextArea fx:id="descriptionArea" editable="false" wrapText="true" prefRowCount="6" style="-fx-font-size: 15px;"/>
-                <Label text="System" />
+                <Label text="Sistema" />
                 <TextField fx:id="typeField" editable="false" />
             </VBox>
 
             <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
-                <Button text="ROLL DICE" onAction="#onRollDice" />
+                <Button text="TIRAR DADO" onAction="#onRollDice" />
             </VBox>
         </GridPane>
     </center>

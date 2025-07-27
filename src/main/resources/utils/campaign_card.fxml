@@ -21,6 +21,6 @@
         </ScrollPane>
         <Label fx:id="dateLabel" style="-fx-font-size: 10px;" />
         <Label fx:id="stateLabel" />
-        <Button text="Open" onAction="#onOpenCampaign" />
+            <Button text="Abrir" onAction="#onOpenCampaign" />
     </VBox>
 </AnchorPane>

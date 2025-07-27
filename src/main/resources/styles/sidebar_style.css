@@ -1,0 +1,15 @@
+.sidebar-root {
+    -fx-background-color: #1e1e1e;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-pref-height: 100%;
+    -fx-pref-width: 180px;
+}
+
+.button {
+    -fx-font-family: "DRAGON HUNTER";
+    -fx-text-fill: white;
+    -fx-background-color: #333;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}

@@ -5,6 +5,7 @@ import com.rpgmanager.controllers.utils.CreateCharacterController;
 import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.models.Character;
+import com.rpgmanager.utils.CampaignAware;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,15 +23,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class CharactersController extends OnCampaignGoToController{
-    @FXML private Label campaignTitle;
-    @FXML private FlowPane charactersContainer;
-    @FXML private ScrollPane myScrollPane;
+public class CharactersController implements CampaignAware {
+    @FXML
+    private Label campaignTitle;
+    @FXML
+    private FlowPane charactersContainer;
+    @FXML
+    private ScrollPane myScrollPane;
+    private Campaign campaign;
 
     @FXML
     public void initialize() {
         charactersContainer.prefWidthProperty().bind(myScrollPane.widthProperty());
     }
+
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
@@ -38,7 +44,7 @@ public class CharactersController extends OnCampaignGoToController{
         loadCharacters();
     }
 
-    private void loadCharacters() {
+    public void loadCharacters() {
         charactersContainer.getChildren().clear();
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "SELECT * FROM characters WHERE campaign_id = ?";
@@ -67,7 +73,9 @@ public class CharactersController extends OnCampaignGoToController{
                 Parent card = loader.load();
                 CharacterCardController controller = loader.getController();
                 controller.setCharacter(character);
+                controller.setCampaign(campaign);
 
+                controller.setParentController(this);
                 charactersContainer.getChildren().add(card);
             }
 
@@ -87,14 +95,14 @@ public class CharactersController extends OnCampaignGoToController{
             controller.setCampaign(campaign);
 
             Stage stage = new Stage();
-            stage.setTitle("Create New Character");
+            stage.setTitle("Crear un nuevo personaje");
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root,800,650));
             stage.showAndWait();
             loadCharacters();
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The window Create Character couldn't load.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La venta de crear personaje no pudo cargar.");
             alert.showAndWait();
         }
     }
@@ -115,13 +123,13 @@ public class CharactersController extends OnCampaignGoToController{
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading dice chat window.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error cargando dice chat window.");
             alert.showAndWait();
         }
     }
 
     @FXML
-    private void refresh(){
+    public void refresh(){
         loadCharacters();
     }
 
