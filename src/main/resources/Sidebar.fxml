@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="/styles/sidebar_style.css" styleClass="sidebar-root"
+<VBox xmlns:fx="http://javafx.com/fxml/1"  styleClass="sidebar-root"
       fx:controller="com.rpgmanager.controllers.SidebarController">
     <padding><Insets topRightBottomLeft="20"/></padding>
     <Button text="Menu" maxWidth="Infinity" onAction="#goToHome"/>
