@@ -61,7 +61,10 @@ public class CharacterCardController {
             stage.setTitle("Detalles de personaje - " + character.getName());
             stage.setScene(new Scene(root, 350, 615));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
+            stage.showAndWait();
+            if (parentController != null){
+                parentController.loadCharacters();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error cargando la ventana de Detalles de personaje.");

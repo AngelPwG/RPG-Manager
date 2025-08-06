@@ -40,7 +40,7 @@ public class CharactersController implements CampaignAware {
 
     public void setCampaign(Campaign campaign) {
         this.campaign = campaign;
-        campaignTitle.setText("Characters from " + campaign.getName());
+        campaignTitle.setText("Personajes de " + "'" + campaign.getName() + "'");
         loadCharacters();
     }
 

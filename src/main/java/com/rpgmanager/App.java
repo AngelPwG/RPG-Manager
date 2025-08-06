@@ -32,7 +32,7 @@ public class App extends Application {
         Scene scene = new Scene(root, 1280, 700);
         primaryStage.setScene(scene);
         primaryStage.setTitle("RPG Campaign Manager");
-        scene.getStylesheets().add(getClass().getResource("/styles/main_style.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("/styles/main_style.css").toExternalForm());
 
         primaryStage.show();
     }

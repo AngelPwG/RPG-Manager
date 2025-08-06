@@ -4,7 +4,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
-<VBox spacing="10" alignment="BASELINE_LEFT"
+<!--alignment="BASELINE_LEFT" GGGGGGGRRRRRRRRRRRRRRRRRRRR-->
+<VBox spacing="10"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.rpgmanager.controllers.utils.SessionDetailsController">
@@ -17,8 +18,8 @@
         <Label fx:id="sessionTittle"/>
     </HBox>
 
-    <Label text="Personajes participantes:" style="-fx-font-family: sans-serif; -fx-font-size: 13;"/>
-    <ListView fx:id="participantsList" prefHeight="200"/>
+    <Label text="Personajes participantes:" style="-fx-font-family: sans-serif; -fx-font-size: 13;" />
+    <ListView fx:id="participantsList" VBox.vgrow="ALWAYS" prefHeight="200"/>
 
     <Label text="Eventos registrados:" style="-fx-font-family: sans-serif; -fx-font-size: 13;"/>
 

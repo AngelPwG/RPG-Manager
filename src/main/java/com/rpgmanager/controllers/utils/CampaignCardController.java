@@ -42,6 +42,11 @@ public class CampaignCardController {
         try {
             this.mainController.setCampaign(campaign);
             this.mainController.setContentWithCampaign("/screens/campaign_resume.fxml");
+            if (!this.mainController.getSidebar().getBtnCampaign().isVisible()){
+                this.mainController.getSidebar().getBtnCampaign().setVisible(true);
+                this.mainController.getSidebar().getBtnCharacters().setVisible(true);
+                this.mainController.getSidebar().getBtnSessions().setVisible(true);
+            }
         } catch (NullPointerException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "La campaña no pudo abrir.");

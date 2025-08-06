@@ -2,11 +2,14 @@
 
 /* General */
 
+
+
 .root {
     -fx-background-color: #DFED85;
 }
 
 /* Título del ToolBar */
+
 
 @font-face {
     font-family: 'DRAGON HUNTER';
@@ -24,6 +27,7 @@
 }
 
 /* Botón del ToolBar */
+
 .tool-bar Button {
     -fx-background-color: #57491B;
     -fx-text-fill: white;

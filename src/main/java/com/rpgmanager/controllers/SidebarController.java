@@ -2,10 +2,27 @@ package com.rpgmanager.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class SidebarController {
 
     private MainController mainController;
+
+    @FXML private Button btnCampaign;
+    @FXML private Button btnCharacters;
+    @FXML private Button btnSessions;
+
+    public Button getBtnCampaign() {
+        return btnCampaign;
+    }
+
+    public Button getBtnCharacters() {
+        return btnCharacters;
+    }
+
+    public Button getBtnSessions() {
+        return btnSessions;
+    }
 
     public void setMainController(MainController controller) {
         this.mainController = controller;

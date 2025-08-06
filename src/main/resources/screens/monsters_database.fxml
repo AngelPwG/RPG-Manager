@@ -6,7 +6,7 @@
 <BorderPane HBox.hgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rpgmanager.controllers.screens.MonsterController">
     <top>
         <ToolBar>
-            <Label text="Mounstros Base de datos" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Label text="Bestiario" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
         </ToolBar>
     </top>
 

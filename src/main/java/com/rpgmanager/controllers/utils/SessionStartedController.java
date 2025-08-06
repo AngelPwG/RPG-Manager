@@ -82,6 +82,12 @@ public class SessionStartedController {
                 stmt.setString(2, LocalDateTime.now().toString());
                 stmt.setInt(3, sessionId);
                 stmt.executeUpdate();
+                campaign.setState("En curso");
+                sql = "update campaigns set state = ? where id = ? ";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, campaign.getState());
+                stmt.setInt(2,campaign.getId());
+                stmt.executeUpdate();
             } catch (Exception e) {
                 e.printStackTrace();
             }

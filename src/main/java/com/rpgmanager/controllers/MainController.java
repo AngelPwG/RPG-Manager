@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Node;
 import com.rpgmanager.models.Campaign;
@@ -24,7 +25,14 @@ public class MainController implements Initializable {
     @FXML
     private BorderPane mainContent;
 
+
     private Campaign currentCampaign;
+
+    private SidebarController sidebarController;
+
+    public SidebarController getSidebar() {
+        return sidebarController;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -33,8 +41,8 @@ public class MainController implements Initializable {
             Node sidebarNode = loader.load();
             sidebar.getChildren().setAll(sidebarNode);
 
-            SidebarController sidebarController = loader.getController();
-            sidebarController.setMainController(this);
+            this.sidebarController = loader.getController();
+            this.sidebarController.setMainController(this);
             sidebar.getChildren().setAll(sidebarNode);
 
         } catch (IOException e) {

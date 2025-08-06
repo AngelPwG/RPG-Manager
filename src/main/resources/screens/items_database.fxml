@@ -7,7 +7,7 @@
             fx:controller="com.rpgmanager.controllers.screens.ItemsController">
     <top>
         <ToolBar>
-            <Label text="Objetos Base de datos" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Label text="Objetos" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
         </ToolBar>
     </top>
 

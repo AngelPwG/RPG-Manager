@@ -107,6 +107,7 @@ public class CharacterDetailController {
             } else {
                 System.out.println("No se encontró ningún personaje con ese id");
             }
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Error al actualizar el personaje");
