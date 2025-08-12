@@ -77,7 +77,7 @@ public class CampaignsController implements CampaignAware, MainAware {
 
         } catch (Exception e) {
             e.printStackTrace();
-            showError("Error to load the campaigns");
+            showError("Error al cargar las campañas");
         }
     }
 

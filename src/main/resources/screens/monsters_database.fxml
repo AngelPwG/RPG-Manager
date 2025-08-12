@@ -6,7 +6,7 @@
 <BorderPane HBox.hgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rpgmanager.controllers.screens.MonsterController">
     <top>
         <ToolBar>
-            <Label text="Monsters Database" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Label text="Bestiario" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
         </ToolBar>
     </top>
 
@@ -18,12 +18,12 @@
 
         <HBox spacing="10">
             <TextField fx:id="searchBar" promptText="Search..." HBox.hgrow="ALWAYS" minWidth="200"/>
-            <Button text="Search" onAction="#onSearch"/>
+            <Button text="Buscar" onAction="#onSearch"/>
         </HBox>
 
         <TableView fx:id="monstersTable" prefHeight="500" prefWidth="700">
             <columns>
-                <TableColumn fx:id="colName" text="Name" prefWidth="100"/>
+                <TableColumn fx:id="colName" text="Nombre" prefWidth="100"/>
                 <TableColumn fx:id="colHP" text="HP" prefWidth="50"/>
                 <TableColumn fx:id="colAC" text="AC" prefWidth="50"/>
                 <TableColumn fx:id="colStrength" text="Str" prefWidth="50"/>
@@ -32,11 +32,10 @@
                 <TableColumn fx:id="colIntelligence" text="Int" prefWidth="50"/>
                 <TableColumn fx:id="colWisdom" text="Wis" prefWidth="50"/>
                 <TableColumn fx:id="colCharisma" text="Cha" prefWidth="50"/>
-                <TableColumn fx:id="colDesc" text="Description" prefWidth="310"/>
+                <TableColumn fx:id="colDesc" text="Descripción" prefWidth="310"/>
             </columns>
         </TableView>
 
     </VBox>
     </center>
 </BorderPane>
-

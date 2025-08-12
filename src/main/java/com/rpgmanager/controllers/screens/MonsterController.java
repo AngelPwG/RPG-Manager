@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class MonsterController extends GoToController{
+public class MonsterController{
 
     @FXML
     private TextField searchBar;

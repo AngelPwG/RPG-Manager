@@ -12,7 +12,8 @@
             <Label fx:id="nameLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
             <Label fx:id="typeLabel" style="-fx-font-size: 12px; -fx-text-fill: gray;" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button text="✎" fx:id="editBtn" onAction="#onEdit" maxWidth="20" />
+            <Button text="..." fx:id="editBtn" onAction="#onEdit" maxWidth="30" />
+            <Button text="Eliminar" fx:id="deleteButton" onAction="#deleteCharacter" />
         </HBox>
 
         <HBox spacing="10">

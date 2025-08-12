@@ -7,9 +7,9 @@
     <padding>
         <Insets topRightBottomLeft="20"/>
     </padding>
-    <Label text="Create Character" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-    <TextField fx:id="nameField" promptText="Character Name" />
-    <CheckBox fx:id="type" text="is an NPC?" />
+    <Label text="Crear personaje" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Nombre del personaje" />
+    <CheckBox fx:id="type" text="¿Es un NPC?" />
     <HBox spacing="10">
         <TextField fx:id="acField" promptText="AC" />
         <TextField fx:id="hpField" promptText="HP actual / total" />
@@ -37,20 +37,20 @@
 
     <HBox spacing="20" alignment="CENTER_LEFT">
         <VBox spacing="5" alignment="CENTER">
-            <Label text="Available Skills"/>
+            <Label text="Habilidades Disponibles"/>
             <ListView fx:id="availableSkillsListView" prefWidth="200" prefHeight="250" />
         </VBox>
     </HBox>
 
     <HBox spacing="10">
-        <TextArea fx:id="bondsField" promptText="Bonds" prefRowCount="2" />
-        <TextArea fx:id="fearsField" promptText="Fears" prefRowCount="2" />
+        <TextArea fx:id="bondsField" promptText="Lazos" prefRowCount="2" />
+        <TextArea fx:id="fearsField" promptText="Miedos" prefRowCount="2" />
     </HBox>
 
     <HBox spacing="10">
-        <TextArea fx:id="lovesField" promptText="Loves" prefRowCount="2" />
-        <TextArea fx:id="hatesField" promptText="Hates" prefRowCount="2" />
+        <TextArea fx:id="lovesField" promptText="Ama" prefRowCount="2" />
+        <TextArea fx:id="hatesField" promptText="Odia" prefRowCount="2" />
     </HBox>
 
-    <Button text="Create Character" onAction="#createCharacter" />
+    <Button text="Crear personaje" onAction="#createCharacter" />
 </VBox>

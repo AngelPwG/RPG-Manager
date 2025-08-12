@@ -54,7 +54,7 @@ public class RollDiceChatController {
 
         String rs = rollInterpretation(command);
         if (rs == null) {
-            chatList.getItems().add("[Error] Invalid Command: " + command);
+            chatList.getItems().add("[Error] Comando invalido: " + command);
             return;
         }
 

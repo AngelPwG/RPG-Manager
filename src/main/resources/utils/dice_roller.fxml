@@ -7,10 +7,11 @@
     <padding>
         <Insets topRightBottomLeft="15"/>
     </padding>
-    <Label text="Dice Roller Chat" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <Label text="Tirar el dado" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
     <ListView fx:id="chatList" prefHeight="300" />
     <HBox spacing="10">
-        <TextField fx:id="inputCommand" promptText="Enter roll command (e.g. Aragorn: 1d20+5 or 2d6)" HBox.hgrow="ALWAYS" />
-        <Button text="Roll" onAction="#onRoll" />
+        <TextField fx:id="inputCommand" promptText="Escribe el comando para tirar (e.g. Aragorn: 1d20+5 or 2d6)" HBox.hgrow="ALWAYS" />
+        <Button text="Tirar" onAction="#onRoll" />
     </HBox>
 </VBox>
+

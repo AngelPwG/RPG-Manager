@@ -32,7 +32,7 @@ public class SessionStartedController {
         this.sessionId = sessionId;
         this.stage = (Stage) sessionTitle.getScene().getWindow();
         this.controller = controller;
-        sessionTitle.setText("Session: " + name);
+        sessionTitle.setText("Sesión: " + name);
     }
 
     @FXML
@@ -48,8 +48,8 @@ public class SessionStartedController {
     }
 
     public void addRollDice(String result){
-        eventsList.getItems().add("Dice roll result = " + result);
-        saveEvent("DiceCommand", "Dice roll result = " + result);
+        eventsList.getItems().add("Resultado de tirada = " + result);
+        saveEvent("ComandoDado", "Resultado de tirada = " + result);
         eventField.clear();
     }
 
@@ -70,9 +70,9 @@ public class SessionStartedController {
     @FXML
     private void endSession() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("End Session");
-        dialog.setHeaderText("Write a final resume for the session");
-        dialog.setContentText("Resume:");
+        dialog.setTitle("Terminar sesión");
+        dialog.setHeaderText("Escribe un resumen final para la sesión");
+        dialog.setContentText("Resumen:");
 
         dialog.showAndWait().ifPresent(resumenFinal -> {
             try (Connection conn = DatabaseManager.getConnection()) {
@@ -81,6 +81,12 @@ public class SessionStartedController {
                 stmt.setString(1, resumenFinal);
                 stmt.setString(2, LocalDateTime.now().toString());
                 stmt.setInt(3, sessionId);
+                stmt.executeUpdate();
+                campaign.setState("En curso");
+                sql = "update campaigns set state = ? where id = ? ";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, campaign.getState());
+                stmt.setInt(2,campaign.getId());
                 stmt.executeUpdate();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -102,13 +108,13 @@ public class SessionStartedController {
             controller.setSession(sessionId);
 
             Stage stage = new Stage();
-            stage.setTitle("Dice Roller - Chat");
+            stage.setTitle("Tirar dado - Chat");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading dice chat window.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error cargando dice chat window.");
             alert.showAndWait();
         }
     }

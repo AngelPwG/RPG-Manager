@@ -1,5 +1,6 @@
 package com.rpgmanager.controllers.screens;
 
+import com.rpgmanager.controllers.MainController;
 import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.utils.CampaignAware;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Optional;
 
 public class CampaignOverviewController implements CampaignAware {
 
@@ -88,23 +90,56 @@ public class CampaignOverviewController implements CampaignAware {
             controller.setCampaign(campaign);
 
             Stage stage = new Stage();
-            stage.setTitle("Dice Roller - Chat");
+            stage.setTitle("Tirar dado - Chat");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading dice chat window.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error cargando dice chat window.");
             alert.showAndWait();
         }
     }
 
     @FXML
-    private void onExport() {
+    private void deleteCampaign() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Export");
-        alert.setHeaderText(null);
-        alert.setContentText("Export Functionality not implemented yet");
-        alert.showAndWait();
+        alert.setTitle("Confirmar eliminación");
+        alert.setHeaderText("¿Estás seguro de que quieres eliminar esta camapaña?");
+        alert.setContentText("Esta acción no se puede deshacer");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            this.deleteCampaignByID(campaign.getId());
+
+            try {
+                MainController mainController = (MainController)
+                        labelCampaignName.getScene().getRoot().getUserData();
+
+                if (mainController != null) {
+                    mainController.setContentWithCampaign("/screens/main.fxml");
+                } else {
+                    System.out.println("No se encontró el MainController");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "No se pudo cargar el menú principal.");
+                errorAlert.showAndWait();
+            }
+        }
+    }
+
+    public void deleteCampaignByID(int campaignID) {
+        String sql = "DELETE FROM campaigns WHERE id = ?";
+        try (Connection conn = com.rpgmanager.utils.DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, campaignID);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

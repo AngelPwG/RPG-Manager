@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<!--alignment="BASELINE_LEFT" GGGGGGGRRRRRRRRRRRRRRRRRRRR-->
+<VBox spacing="10"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rpgmanager.controllers.utils.SessionDetailsController">
+    <padding>
+        <Insets top="15" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox style="-fx-font-size: 17; -fx-font-family: sans-serif; -fx-font-weight: bold" alignment="CENTER">
+        <Label text="Detalles de la sesión: "/>
+        <Label fx:id="sessionTittle"/>
+    </HBox>
+
+    <Label text="Personajes participantes:" style="-fx-font-family: sans-serif; -fx-font-size: 13;" />
+    <ListView fx:id="participantsList" VBox.vgrow="ALWAYS" prefHeight="200"/>
+
+    <Label text="Eventos registrados:" style="-fx-font-family: sans-serif; -fx-font-size: 13;"/>
+
+    <ScrollPane fitToWidth="true" prefHeight="300">
+        <VBox fx:id="eventsContainer" spacing="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </ScrollPane>
+
+</VBox>

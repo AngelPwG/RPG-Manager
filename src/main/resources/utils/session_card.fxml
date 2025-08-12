@@ -14,7 +14,8 @@
         <Label fx:id="labelResume" wrapText="true" maxWidth="800" />
         <HBox spacing="10">
             <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="detailsBtn" text="Details" onAction="#showDetails" />
+            <Button text="Eliminar" fx:id="deleteBtn" onAction="#deleteSession" />
+            <Button fx:id="detailsBtn" text="Detalles" onAction="#showDetails" />
         </HBox>
     </VBox>
 </AnchorPane>

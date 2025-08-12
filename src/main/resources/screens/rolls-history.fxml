@@ -7,8 +7,8 @@
             fx:controller="com.rpgmanager.controllers.screens.RollHistoryController">
     <top>
         <ToolBar>
-            <Label text="Rolls History" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
-            <Button text="Refresh" onAction="#refresh"/>
+            <Label text="Historial de tiradas" style="-fx-font-weight: bold; -fx-font-size: 20px;" />
+            <Button text="Refrescar" onAction="#refresh"/>
         </ToolBar>
     </top>
 
@@ -20,12 +20,12 @@
 
             <TableView fx:id="rollsTable" prefHeight="500" prefWidth="700">
                 <columns>
-                    <TableColumn fx:id="colCampaign" text="Campaign" prefWidth="100"/>
-                    <TableColumn fx:id="colSession" text="Session" prefWidth="100"/>
-                    <TableColumn fx:id="colCharacter" text="Character" prefWidth="100"/>
-                    <TableColumn fx:id="colType" text="Command" prefWidth="100"/>
-                    <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
-                    <TableColumn fx:id="colResult" text="Result" prefWidth="100"/>
+                    <TableColumn fx:id="colCampaign" text="Campaña" prefWidth="100"/>
+                    <TableColumn fx:id="colSession" text="Sesión" prefWidth="100"/>
+                    <TableColumn fx:id="colCharacter" text="Personaje" prefWidth="100"/>
+                    <TableColumn fx:id="colType" text="Comando" prefWidth="100"/>
+                    <TableColumn fx:id="colDate" text="Fecha" prefWidth="100"/>
+                    <TableColumn fx:id="colResult" text="Resultado" prefWidth="100"/>
                 </columns>
             </TableView>
 
@@ -33,7 +33,7 @@
     </center>
     <bottom>
         <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
-            <Button text="ROLL DICE" onAction="#onRollDice" />
+            <Button text="TIRAR DADO" onAction="#onRollDice" />
         </VBox>
     </bottom>
 </BorderPane>

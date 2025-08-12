@@ -56,7 +56,7 @@ public class CreateCharacterController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error loading skills from database.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error cargando habilidades de la base de datos.");
             alert.showAndWait();
         }
     }
@@ -124,13 +124,13 @@ public class CreateCharacterController {
 
             conn.commit();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Character created successfully!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Personaje creado correctamente.!");
             alert.showAndWait();
             closeWindow();
 
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter valid numbers for AC, HP, and Stats.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Por favor ingresa nombres validos para AC, HP, y Stats.");
             alert.showAndWait();
         }
     }

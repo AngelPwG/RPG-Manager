@@ -7,14 +7,14 @@
     <padding>
         <Insets topRightBottomLeft="20"/>
     </padding>
-    <Label text="Start a new Session" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <Label text="Empezar nueva sesión" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
 
-    <TextField fx:id="sessionTitle" promptText="Title or short description" />
-    <Label text="Select the character that will participate:" />
+    <TextField fx:id="sessionTitle" promptText="Titulo o pequeña descripción" />
+    <Label text="Elige a los personajes que van a participar:" />
     <ListView fx:id="charactersList" prefHeight="150" />
 
     <HBox spacing="10">
-        <Button text="Start Session" onAction="#saveSession" />
-        <Button text="Cancel" onAction="#cancel" />
+        <Button text="Empezar sesión" onAction="#saveSession" />
+        <Button text="Cancelar" onAction="#cancel" />
     </HBox>
 </VBox>

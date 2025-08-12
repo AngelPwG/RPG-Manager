@@ -1,0 +1,40 @@
+/* main.css */
+
+/* General */
+
+
+
+.root {
+    -fx-background-color: #DFED85;
+}
+
+/* Título del ToolBar */
+
+
+@font-face {
+    font-family: 'DRAGON HUNTER';
+    src: url('/fonts/DragonHunter.otf');
+}
+.tool-bar{
+    -fx-background-color: #DFED85;
+}
+
+.tool-bar Label {
+    -fx-font-size: 40px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+    -fx-font-family: Webdings;
+}
+
+/* Botón del ToolBar */
+
+.tool-bar Button {
+    -fx-background-color: #57491B;
+    -fx-text-fill: white;
+    -fx-padding: 6 12;
+    -fx-border-color: #292209;
+}
+
+.tool-bar Button:hover {
+    -fx-background-color: #33280B;
+}

@@ -3,11 +3,13 @@ package com.rpgmanager.controllers.screens;
 import com.rpgmanager.controllers.utils.RollDiceChatController;
 import com.rpgmanager.models.Campaign;
 import com.rpgmanager.models.Rolls;
+import com.rpgmanager.utils.CampaignAware;
 import com.rpgmanager.utils.DatabaseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,7 +21,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class RollHistoryController extends OnCampaignGoToController{
+public class RollHistoryController implements CampaignAware{
 
     @FXML
     private TableView<Rolls> rollsTable;
@@ -41,6 +43,8 @@ public class RollHistoryController extends OnCampaignGoToController{
 
     @FXML
     private TableColumn<Rolls, String> colResult;
+
+    private Campaign campaign;
 
     private final ObservableList<Rolls> rollList = FXCollections.observableArrayList();
 

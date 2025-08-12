@@ -4,6 +4,7 @@ module com.rpgmanager {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires java.desktop;
 
     opens com.rpgmanager to javafx.fxml;
     exports com.rpgmanager;
